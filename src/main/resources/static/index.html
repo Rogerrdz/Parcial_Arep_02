@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tribonacci</title>
+</head>
+<body>
+
+<h2>Secuencia de Tribonacci</h2>
+
+<input type="text" id="value">
+<button onclick="call()">Calcular</button>
+
+<div id="result"></div>
+
+<script>
+function call() {
+    let val = document.getElementById("value").value;
+
+    fetch("/math/fibonacci?value=" + val)
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerHTML =
+            data.output;
+    });
+}
+</script>
+
+</body>
+</html>
